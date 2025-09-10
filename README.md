@@ -1,11 +1,11 @@
 # Media manage Using Jwt 
 A robust, enterprise-grade media management platform built with Spring Boot, featuring JWT authentication, secure streaming capabilities, and comprehensive access control.
 
-#Overview
+## Overview
 
 This application provides a complete solution for managing digital media assets with enterprise-level security. It implements time-limited access URLs, comprehensive audit logging, and role-based authentication to ensure secure media distribution.
 
-#Technology Stack
+## Technology Stack
 <div align="center">
   <table>
     <tr>
@@ -276,16 +276,18 @@ Reduce expiration to 10 seconds for testing
 
 ## **admin_users**
 
-```{
-    "_id": ObjectId,
+```
+{
+    "id": ObjectId,
     "email": String (unique),
     "hashedPassword": String,
     "createdAt": ISODate
 }
 ```
 ## **media_assets**
-```{
-    "_id": ObjectId,
+```
+{
+    "id": ObjectId,
     "title": String,
     "type": String, // "video" or "audio"
     "fileUrl": String,
@@ -293,8 +295,9 @@ Reduce expiration to 10 seconds for testing
 }
 ```
 ## **media_view_logs**
-```{
-    "_id": ObjectId,
+```
+{
+    "id": ObjectId,
     "mediaId": String,
     "viewedByIp": String,
     "timestamp": ISODate
@@ -304,13 +307,13 @@ Reduce expiration to 10 seconds for testing
 
 ## Security Features
 
-*Password Security*: BCrypt hashing with salt
+**Password Security**: BCrypt hashing with salt
 
-*Token Security*: HMAC-SHA256 signed JWTs
+**Token Security**: HMAC-SHA256 signed JWTs
 
-*Time-based Security*: Configurable token expiration
+**Time-based Security**: Configurable token expiration
 
-*Access Control*: Role-based endpoint protection
+**Access Control**: Role-based endpoint protection
 
 
 
@@ -321,14 +324,14 @@ The application follows standard Spring Boot conventions with clear separation o
 
  **Controllers**:  Handle HTTP requests and responses
 
-***Services**: Implement business logic
+**Services**: Implement business logic
 
-***Repositories**: Data access layer
+**Repositories**: Data access layer
 
-***Models**: Entity definitions
+**Models**: Entity definitions
 
-***DTO**s: Data transfer objects
+**DTO**: Data transfer objects
 
-***Configuration**: Security and application configuration
+**Configuration**: Security and application configuration
 
 
