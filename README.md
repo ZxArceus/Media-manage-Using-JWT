@@ -142,12 +142,13 @@ Authorization: Bearer <jwt-token>
 
 Content-Type: application/json
 
-'''json
+'''
 {
     "title": "Sample Video Content",
     "type": "video",
     "fileUrl": "https://example.com/media/video.mp4"
 }
+'''
 
 Response:
 
