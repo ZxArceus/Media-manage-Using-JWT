@@ -1,4 +1,4 @@
-Media manage Using Jwt
+Media manage Using Jwt/n
 A robust, enterprise-grade media management platform built with Spring Boot, featuring JWT authentication, secure streaming capabilities, and comprehensive access control.
 Overview
 This application provides a complete solution for managing digital media assets with enterprise-level security. It implements time-limited access URLs, comprehensive audit logging, and role-based authentication to ensure secure media distribution.
