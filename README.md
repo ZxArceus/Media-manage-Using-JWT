@@ -112,6 +112,7 @@ Content-Type: application/json
     "email": "admin@example.com",
     "password": "securePassword123"
 }
+'''
 Response:
 
 json "Admin user registered successfully!"
@@ -132,6 +133,7 @@ Response:
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
     "type": "Bearer"
 }
+'''
 Media Management Endpoints (Protected)
 
 Add Media Asset
@@ -142,7 +144,7 @@ Authorization: Bearer <jwt-token>
 
 Content-Type: application/json
 
-'''
+'''json
 {
     "title": "Sample Video Content",
     "type": "video",
