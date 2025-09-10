@@ -33,46 +33,46 @@ This application provides a complete solution for managing digital media assets 
   </table>
 </div>
 
-#Core Features
+# Core Features
 
-**Security & Authentication**
+## Security & Authentication
 
-*JWT-based Authentication: Stateless token-based security
+### JWT-based Authentication: Stateless token-based security
 
-*BCrypt Password Encryption: Industry-standard password hashing
+### BCrypt Password Encryption: Industry-standard password hashing
 
-*Role-based Access Control: Administrative user management
+### Role-based Access Control: Administrative user management
 
-*Time-limited URLs: Configurable expiration for media access
+### Time-limited URLs: Configurable expiration for media access
 
-**Enterprise Capabilities**
+## Enterprise Capabilities
 
-*RESTful API Design: Standard HTTP methods and status codes
+### RESTful API Design: Standard HTTP methods and status codes
 
-*Database Abstraction: MongoDB integration with Spring Data
+### Database Abstraction: MongoDB integration with Spring Data
 
-*Configuration Management: Environment-based configuration
+### Configuration Management: Environment-based configuration
 
-*Comprehensive Error Handling: Detailed error responses
+### Comprehensive Error Handling: Detailed error responses
 
-**Prerequisites**
+## Prerequisites
 
-*Java Development Kit: Version 17 or higher
+### Java Development Kit: Version 17 or higher
 
-*Apache Maven: Version 3.6 or higher
+### Apache Maven: Version 3.6 or higher
 
-*MongoDB: Version 4.0 or higher (running on localhost:27017)
+### MongoDB: Version 4.0 or higher (running on localhost:27017)
 
-Installation & Setup
+# Installation & Setup
 
-1. Clone Repository
+## 1. Clone Repository
 ```
 bash  git clone <repository-url>cd MediaApp
 ```
-2. Configure Application
+## 2. Configure Application
 Create or update src/main/resources/application.properties:
 
- **Database Configuration**
+ ## Database Configuration
 
 ```
 spring.data.mongodb.host=localhost
@@ -93,20 +93,20 @@ spring.data.mongodb.auto-index-creation=true
 # Server Configuration
 server.port=8080
 
-3. Build Application
+## 3. Build Application
 ```bash mvn clean compile```
 
 ```mvn clean install```
 
-5. Run Application
+## 5. Run Application
 ```bash mvn spring-boot:run```
 
-The application will be available at http://localhost:8080
+The application will be available at ```http://localhost:8080```
 
 
-**Authentication Endpoints**
+# Authentication Endpoints
 
-**Admin Registration**
+## Admin Registration
 
 ```http POST /auth/signup```
 Content-Type: application/json
@@ -120,7 +120,7 @@ Response:
 
 json "Admin user registered successfully!"
 
-**Admin Login**
+## Admin Login
 
 ```http POST /auth/login ```
 
@@ -140,7 +140,7 @@ Response:
 ```
 **Media Management Endpoints (Protected)**
 
-**Add Media Asset**
+## Add Media Asset
 
 ```http POST /media```
 
@@ -160,7 +160,7 @@ Response:
 
 json "Media added successfully with ID: 65f8a1b2c3d4e5f6789abcde"
 
-**Generate Secure Stream URL**
+## Generate Secure Stream URL
 
 ```http GET /media/{mediaId}/stream-url```
 
@@ -172,13 +172,12 @@ Response:
     "expiresInMinutes": 10
 }
 ```
-**Testing & Validation Endpoints**
+## Testing & Validation Endpoints
 
 Stream Access Validation
 
 ```http GET /media/stream/{mediaId}?token={jwt-token}&expires={timestamp}```
-
-Success Response:
+**Success Response:
 
 json "Stream access granted for media: {mediaId}"
 
@@ -190,9 +189,9 @@ Invalid Token Response (401):
 
 json "Token validation failed: JWT signature does not match"
 
-Administrative Endpoints (Protected)
+Administrative Endpoints (Protected) **
 
-List All Admin Users
+## List All Admin Users
 
 ```http GET /api/users```
 
@@ -216,8 +215,8 @@ Complete Testing Workflow
 
 # Start application
 ```mvn spring-boot:run```
-1. Authentication Flow
-http# Register admin user
+## 1. Authentication Flow
+ Register admin user
 
 ```POST http://localhost:8080/auth/signup```
 ```json
@@ -227,7 +226,7 @@ http# Register admin user
 }
 ```
 
-# Authenticate and get token
+## 2. Authenticate and get token
 ```POST http://localhost:8080/auth/login```
 
 ```json
@@ -236,7 +235,7 @@ http# Register admin user
     "password": "testPassword123"
 }
 ```
-3. Media Management Testing
+## 3. Media Management Testing
 http# Add media asset
 
 ```POST http://localhost:8080/media```
@@ -250,32 +249,32 @@ Authorization: Bearer <your-jwt-token>
     "fileUrl": "https://sample-videos.com/test.mp4"
 }
 ```
-# Generate stream URL
+## Generate stream URL
 ```GET http://localhost:8080/media/{media-id}/stream-url```
 
 Authorization: Bearer <your-jwt-token>
 
-4. Time-Limited Access Testing
+## 4. Time-Limited Access Testing
 http# Test immediate access (should succeed)
 
 ```GET http://localhost:8080/media/stream/{media-id}?token={stream-token}&expires={timestamp}```
 
-# Wait for expiration period (default: 10 minutes)
-# Test expired access (should fail with 401)
+### Wait for expiration period (default: 10 minutes)
+### Test expired access (should fail with 401)
 ```GET http://localhost:8080/media/stream/{media-id}?token={stream-token}&expires={timestamp}```
 
 
-Quick Expiration Testing
+## Quick Expiration Testing
 
 For  testing, modify MediaService.java:
 
 Reduce expiration to 10 seconds for testing
 
 ```.setExpiration(new Date(System.currentTimeMillis() + 10000))```
-**_Database Schema**
+# **Database Schema**
 
 
-**_admin_users**
+## **admin_users**
 
 ```{
     "_id": ObjectId,
@@ -284,7 +283,7 @@ Reduce expiration to 10 seconds for testing
     "createdAt": ISODate
 }
 ```
-**_media_assets**
+## **media_assets**
 ```{
     "_id": ObjectId,
     "title": String,
@@ -293,7 +292,7 @@ Reduce expiration to 10 seconds for testing
     "createdAt": ISODate
 }
 ```
-**_media_view_logs**
+## **media_view_logs**
 ```{
     "_id": ObjectId,
     "mediaId": String,
@@ -303,7 +302,7 @@ Reduce expiration to 10 seconds for testing
 ```
 
 
-**Security Features**
+## Security Features
 
 *Password Security*: BCrypt hashing with salt
 
@@ -316,30 +315,20 @@ Reduce expiration to 10 seconds for testing
 
 
 
-**Project Structure**
+## Project Structure
 
 The application follows standard Spring Boot conventions with clear separation of concerns:
 
-*Controllers: Handle HTTP requests and responses
+ **Controllers**:  Handle HTTP requests and responses
 
-*Services: Implement business logic
+***Services**: Implement business logic
 
-*Repositories: Data access layer
+***Repositories**: Data access layer
 
-*Models: Entity definitions
+***Models**: Entity definitions
 
-*DTOs: Data transfer objects
+***DTO**s: Data transfer objects
 
-*Configuration: Security and application configuration
+***Configuration**: Security and application configuration
 
-**Extension Points**
 
-*Custom authentication providers
-
-*Additional media formats
-
-*Advanced access control rules
-
-Integration with cloud storage services
-
-Real-time streaming capabilities
