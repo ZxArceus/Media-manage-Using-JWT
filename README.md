@@ -107,12 +107,12 @@ Admin Registration
 
 http<br> POST /auth/signup
 Content-Type: application/json
-'''json
+```json
 {
     "email": "admin@example.com",
     "password": "securePassword123"
 }
-'''
+```
 Response:
 
 json "Admin user registered successfully!"
