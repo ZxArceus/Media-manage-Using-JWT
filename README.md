@@ -181,15 +181,15 @@ Stream Access Validation
 
 json "Stream access granted for media: {mediaId}"
 
-Expired Response (401):
+**Expired Response (401):**
 
 json "Stream URL has expired"
 
-Invalid Token Response (401):
+**Invalid Token Response (401):**
 
 json "Token validation failed: JWT signature does not match"
 
-Administrative Endpoints (Protected) **
+Administrative Endpoints (Protected) 
 
 ## List All Admin Users
 
@@ -208,6 +208,26 @@ Response:
 }
 ]
 ```
+
+## view media
+
+``` http POST /media/{media_id}/view```
+
+Response:
+
+json "media viewed successfully"
+
+## Analytics response
+
+``` http GET /media/{media_id}/analytics'''
+Response:
+
+'''
+{
+
+}
+
+
 Testing Guide
 
 Complete Testing Workflow
