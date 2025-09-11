@@ -222,8 +222,12 @@ json "media viewed successfully"
 
 ## Analytics response
 
-``` http GET /media/{media_id}/analytics'''
-Expected Response:
+``` 
+http GET /media/{media_id}/analytics
+'''
+
+Response:
+
 ```
 {
     "totalViews": 15,
