@@ -37,31 +37,31 @@ This application provides a complete solution for managing digital media assets 
 
 ## Security & Authentication
 
-### JWT-based Authentication: Stateless token-based security
+ JWT-based Authentication: Stateless token-based security
 
-### BCrypt Password Encryption: Industry-standard password hashing
+BCrypt Password Encryption: Industry-standard password hashing
 
-### Role-based Access Control: Administrative user management
+ Role-based Access Control: Administrative user management
 
-### Time-limited URLs: Configurable expiration for media access
+ Time-limited URLs: Configurable expiration for media access
 
 ## Enterprise Capabilities
 
-### RESTful API Design: Standard HTTP methods and status codes
+RESTful API Design: Standard HTTP methods and status codes
 
-### Database Abstraction: MongoDB integration with Spring Data
+ Database Abstraction: MongoDB integration with Spring Data
 
-### Configuration Management: Environment-based configuration
+ Configuration Management: Environment-based configuration
 
-### Comprehensive Error Handling: Detailed error responses
+Comprehensive Error Handling: Detailed error responses
 
 ## Prerequisites
 
-### Java Development Kit: Version 17 or higher
+Java Development Kit: Version 17 or higher
 
-### Apache Maven: Version 3.6 or higher
+ Apache Maven: Version 3.6 or higher
 
-### MongoDB: Version 4.0 or higher (running on localhost:27017)
+ MongoDB: Version 4.0 or higher (running on localhost:27017)
 
 # Installation & Setup
 
