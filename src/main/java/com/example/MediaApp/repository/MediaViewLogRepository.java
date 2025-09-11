@@ -1,5 +1,6 @@
 package com.example.MediaApp.repository;
 
+
 import com.example.MediaApp.model.MediaViewLog;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

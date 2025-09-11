@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
-@Document(collection = "media_view_logs")
+@Document(collection = "mediaview_logs")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,9 +22,27 @@ public class MediaViewLog {
 
     private LocalDateTime timestamp;
 
+    // New fields for advanced analytics
+    private String userAgent;
+
+    private String referrer;
+
+
+    private String sessionId;
+
     public MediaViewLog(String mediaId, String viewedByIp) {
         this.mediaId = mediaId;
         this.viewedByIp = viewedByIp;
         this.timestamp = LocalDateTime.now();
+    }
+
+    public MediaViewLog(String mediaId, String viewedByIp, String userAgent, String referrer) {
+        this.mediaId = mediaId;
+        this.viewedByIp = viewedByIp;
+        this.userAgent = userAgent;
+        this.referrer = referrer;
+        this.timestamp = LocalDateTime.now();
+
+
     }
 }
