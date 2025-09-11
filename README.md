@@ -224,7 +224,7 @@ json "media viewed successfully"
 
 ``` 
 http GET /media/{media_id}/analytics
-'''
+```
 
 Response:
 
