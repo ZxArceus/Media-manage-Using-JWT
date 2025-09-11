@@ -1,9 +1,9 @@
 # Media manage Using Jwt 
-A robust, enterprise-grade media management platform built with Spring Boot, featuring JWT authentication, secure streaming capabilities, and comprehensive access control.
+A robust,  media management platform built with Spring Boot, featuring JWT authentication, secure streaming capabilities, and comprehensive access control.
 
 ## Overview
 
-This application provides a complete solution for managing digital media assets with enterprise-level security. It implements time-limited access URLs, comprehensive audit logging, and role-based authentication to ensure secure media distribution.
+This application provides a complete solution for managing digital media assets with enterprise-level security. It implements time-limited access URLs and role-based authentication to ensure secure media distribution.
 
 ## Technology Stack
 <div align="center">
@@ -210,8 +210,11 @@ Response:
 ```
 
 ## view media
-
-``` http POST /media/{media_id}/view```
+```
+POST http://localhost:8080/media/{media_id}/view
+```
+Authorization: Bearer <jwt-token>
+Referer: https://example.com/dashboard
 
 Response:
 
@@ -220,20 +223,30 @@ json "media viewed successfully"
 ## Analytics response
 
 ``` http GET /media/{media_id}/analytics'''
-Response:
-
-'''
+Expected Response:
+```
 {
-
+    "totalViews": 15,
+    "uniqueIps": 8,
+    "viewsPerDay": {
+        "2025-01-15": 10,
+        "2025-01-14": 5
+    },
+   
+    "mostActiveDay": "2025-01-15",
+    "averageViewsPerDay": 3.5
 }
+```
 
+**Error Response (400)**:
+Error: Media not found with ID: invalid_id
 
-Testing Guide
+# Testing Guide
 
 Complete Testing Workflow
 
 
-# Start application
+## Start application
 ```mvn spring-boot:run```
 ## 1. Authentication Flow
  Register admin user
@@ -320,9 +333,13 @@ Reduce expiration to 10 seconds for testing
     "id": ObjectId,
     "mediaId": String,
     "viewedByIp": String,
-    "timestamp": ISODate
+    "timestamp": ISODate,
+    "user agent ": String,
+    
 }
 ```
+
+
 
 
 ## Security Features
